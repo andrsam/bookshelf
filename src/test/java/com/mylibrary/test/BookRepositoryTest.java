@@ -1,7 +1,10 @@
 package com.mylibrary.test;
 
 import com.mylibrary.config.PersistenceConfig;
+import com.mylibrary.dto.BookSearchCriteria;
 import com.mylibrary.entity.Book;
+import com.mylibrary.entity.BookSpecification;
+import com.mylibrary.repository.BookPagingRepository;
 import com.mylibrary.repository.BookRepository;
 import org.junit.Before;
 import org.junit.Test;
@@ -20,6 +23,9 @@ import static org.junit.Assert.assertNull;
 public class BookRepositoryTest {
     @Autowired
     private BookRepository bookRepository;
+
+    @Autowired
+    private BookPagingRepository bookPagingRepository;
 
     private Book book = new Book();
 
@@ -57,4 +63,13 @@ public class BookRepositoryTest {
         bookRepository.delete(book.getId());
         assertNull(bookRepository.findOne(book.getId()));
     }
+
+    @Test
+    public void testSearchBook() {
+        BookSearchCriteria criteria = new BookSearchCriteria();
+        criteria.setAuthor("Umberto Eco");
+        BookSpecification specification = new BookSpecification(criteria);
+        assertEquals(bookPagingRepository.findAll(specification).get(0).getTitle(), "The Name of the Rose");
+    }
+
 }

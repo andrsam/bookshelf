@@ -1,7 +1,6 @@
-package com.mylibrary.repository;
+package com.mylibrary.entity;
 
 import com.mylibrary.dto.BookSearchCriteria;
-import com.mylibrary.entity.Book;
 import org.springframework.data.jpa.domain.Specification;
 
 import javax.persistence.criteria.CriteriaBuilder;
@@ -28,9 +27,9 @@ public class BookSpecification implements Specification<Book> {
     public Predicate toPredicate(Root<Book> root, CriteriaQuery<?> query, CriteriaBuilder cb) {
         List<Predicate> predicates = new ArrayList<>();
 
-        String title = criteria.getTitle().trim();
+        String title = criteria.getTitle();
         if (Objects.nonNull(title) && !title.isEmpty()) {
-            predicates.add(cb.like(cb.lower(root.get(CONST_TITLE)), "%" + title.toLowerCase() + "%"));
+            predicates.add(cb.like(cb.lower(root.get(CONST_TITLE)), "%" + title.trim().toLowerCase() + "%"));
         }
 
         int year = criteria.getYear();
@@ -38,9 +37,9 @@ public class BookSpecification implements Specification<Book> {
             predicates.add(cb.equal(root.<Integer>get(CONST_YEAR), year));
         }
 
-        String author = criteria.getAuthor().trim();
+        String author = criteria.getAuthor();
         if (Objects.nonNull(author) && !author.isEmpty()) {
-            predicates.add(cb.like(cb.lower(root.get(CONST_AUTHOR)), "%" + author.toLowerCase() + "%"));
+            predicates.add(cb.like(cb.lower(root.get(CONST_AUTHOR)), "%" + author.trim().toLowerCase() + "%"));
         }
 
         return cb.and(predicates.toArray(new Predicate[0]));
