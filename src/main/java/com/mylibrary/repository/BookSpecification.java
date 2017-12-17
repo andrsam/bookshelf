@@ -28,9 +28,9 @@ public class BookSpecification implements Specification<Book> {
     public Predicate toPredicate(Root<Book> root, CriteriaQuery<?> query, CriteriaBuilder cb) {
         List<Predicate> predicates = new ArrayList<>();
 
-        String title = criteria.getTitle();
+        String title = criteria.getTitle().trim();
         if (Objects.nonNull(title) && !title.isEmpty()) {
-            predicates.add(cb.like(cb.lower(root.get(CONST_TITLE)), title.toLowerCase() + "%"));
+            predicates.add(cb.like(cb.lower(root.get(CONST_TITLE)), "%" + title.toLowerCase() + "%"));
         }
 
         int year = criteria.getYear();
@@ -38,9 +38,9 @@ public class BookSpecification implements Specification<Book> {
             predicates.add(cb.equal(root.<Integer>get(CONST_YEAR), year));
         }
 
-        String author = criteria.getAuthor();
+        String author = criteria.getAuthor().trim();
         if (Objects.nonNull(author) && !author.isEmpty()) {
-            predicates.add(cb.like(cb.lower(root.get(CONST_AUTHOR)), author.toLowerCase() + "%"));
+            predicates.add(cb.like(cb.lower(root.get(CONST_AUTHOR)), "%" + author.toLowerCase() + "%"));
         }
 
         return cb.and(predicates.toArray(new Predicate[0]));

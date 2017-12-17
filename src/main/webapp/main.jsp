@@ -41,12 +41,13 @@
     </div>
     <div style="padding:3px">
         Наименование:
-        <input id="title" style="easyui-">
+        <input id="title" style="easyui-textbox">
         Автор:
-        <input id="author" style="line-height:26px;border:1px solid #ccc">
+        <input id="author" style="easyui-textbox">
         Год издания:
-        <input id="year" style="line-height:26px;border:1px solid #ccc">
+        <input id="year" style="easyui-textbox">
         <a href="#" class="easyui-linkbutton" plain="true" onclick="doSearch()">Искать</a>
+        <a href="#" class="easyui-linkbutton" plain="true" onclick="clearSearch()">Очистить</a>
     </div>
 </div>
 
@@ -137,8 +138,20 @@
         }
     }
 
+    function clearSearch() {
+        $('#title').val('');
+        $('#author').val('');
+        $('#year').val('');
+        doSearch();
+    }
+
     function doSearch() {
         if ($('#title').val() != '' || $('#author').val() != '' || $('#year').val() != '') {
+
+            if (!$('#year').val()) {
+                $('#year').val('0');
+            }
+
             $('#booksgrid').datagrid('load', {
                 title: $('#title').val(),
                 author: $('#author').val(),
@@ -149,6 +162,7 @@
         else {
             $('#booksgrid').datagrid('load', {});
         }
+        $('#year').val('');
     }
 </script>
 
