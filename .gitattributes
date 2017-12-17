@@ -1,1 +1,1 @@
-special-vendored-path/* /src/main/webapp/resources
+/src/main/webapp/resources/* linguist-vendored
