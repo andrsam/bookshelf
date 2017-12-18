@@ -28,7 +28,13 @@ Book is a entity, that contains unique id, title, year of publication and author
 #### Run and build 
 Using the gradle plugin 
 [gradle-cargo-plugin](https://github.com/bmuschko/gradle-cargo-plugin) 
-using command «gradle build cargoRunLocal»;
+using command:
+```
+gradle build cargoRunLocal
+```
+
+
+
 
 
 
