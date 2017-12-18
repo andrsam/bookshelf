@@ -14,12 +14,15 @@ Book is a entity, that contains unique id, title, year of publication and author
   * Year of publication.  
 
 #### Used technologies
+##### Backend:
 * Spring MVC
 * Hibernate
 * Spring Data JPA
 * Spring Data JPA Specification 
 * Gradle 
 * hsqldb in memory
+###### Frontend:
+* Easy UI Jquery plugin
 
 #### Running 
 Run and build using the gradle plugin 
