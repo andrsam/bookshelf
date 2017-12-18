@@ -26,7 +26,7 @@ Book is a entity, that contains unique id, title, year of publication and author
 * Bootstrap
 
 #### Run and build 
-Using the gradle plugin 
+Using the
 [gradle-cargo-plugin](https://github.com/bmuschko/gradle-cargo-plugin) 
 using command:
 ```
