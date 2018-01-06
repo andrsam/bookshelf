@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/andrsam/bookshelf.svg?branch=master)](https://travis-ci.org/andrsam/bookshelf)
+[![codecov](https://codecov.io/gh/andrsam/bookshelf/branch/master/graph/badge.svg)](https://codecov.io/gh/andrsam/bookshelf)
 # bookshelf
 The simple library manager
 
