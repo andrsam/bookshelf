@@ -22,6 +22,8 @@ Book is a entity, that contains unique id, title, year of publication and author
 * Spring Data JPA
 * Spring Data JPA Specification 
 * Gradle 
+* JaCoCo
+* Travis CI
 * hsqldb in memory
 ##### Frontend:
 * Easy UI Jquery plugin
