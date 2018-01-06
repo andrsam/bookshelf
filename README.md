@@ -3,6 +3,8 @@ The simple library manager
 
 Used for accounting of the books
 
+![ScreenShot](images/screenshot.png)
+
 #### Definitions
 Book is a entity, that contains unique id, title, year of publication and author 
 

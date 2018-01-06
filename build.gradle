@@ -6,6 +6,7 @@ apply plugin: 'java'
 apply plugin: 'war'
 apply plugin: 'com.bmuschko.cargo'
 apply plugin: 'idea'
+apply plugin: 'jacoco'
 
 sourceCompatibility = 1.8
 
@@ -56,4 +57,9 @@ cargo {
     }
 
 }
+
+jacoco {
+    toolVersion = '0.8.0'
+}
+
 
