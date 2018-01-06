@@ -1,4 +1,4 @@
-# mylibrary
+# librarian
 The simple library manager
 
 Used for accounting of the books
