@@ -6,6 +6,7 @@ sudo: false
 # после выполнения сборки запустить скрипт, который будет собирать статистику по JaCoCo
 # Здесь используется сторонни сервис https://codecov.io/
 after_success:
+  - if [ -e ./gradlew ]; then ./gradlew jacocoTestReport;else gradle jacocoTestReport;fi
   - bash <(curl -s https://codecov.io/bash)
 
 # Отправлять уведомление на почту youremail@smtp.ru (Изменить на свою) если сборка упала

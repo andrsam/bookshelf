@@ -62,4 +62,12 @@ jacoco {
     toolVersion = '0.8.0'
 }
 
+jacocoTestReport {
+    reports {
+        xml.enabled true
+        html.enabled false
+    }
+}
+
+check.dependsOn jacocoTestReport
 
